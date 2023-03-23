@@ -1,0 +1,9 @@
+<h1> Artists Index Page</h1>
+<br>
+<% @artists.each do |artist| %>
+<h2>Name: <%= artist.name %></h2>
+<p>Explicit Content: <%= artist.explicit_content %></p>
+<p>Performance Day: <%= artist.performance_day %></p>
+<p>Number of Performances: <%= artist.number_of_performances%></p>
+<p>Festival Appearances: <%= artist.festival_appearances %></p>
+<% end %>
