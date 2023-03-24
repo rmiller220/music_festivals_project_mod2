@@ -43,6 +43,7 @@ RSpec.describe "/artists", type: :feature do
     end
   end
 
+  #User story 4
   describe "As a visitor, when I visit '/artists/:id'" do
     before(:each) do 
       @summer_camp = Festival.create!(name: "Summer Camp Music Festival",
@@ -66,21 +67,24 @@ RSpec.describe "/artists", type: :feature do
                                    festival: @summer_camp)
     end
       it 'I see the Artist with that id, including its attribute' do
-        visit "/artists/'#{@sts9.id}"
+        visit "/artists/#{@sts9.id}"
+        save_and_open_page
 
-        expect(page).to have_content("Name: #{@sts9.name}")
+        expect(page).to have_content("#{@sts9.name}")
         expect(page).to have_content("Explicit Content: #{@sts9.explicit_content}")
         expect(page).to have_content("Performance Day: #{@sts9.performance_day}")
         expect(page).to have_content("Number of Performances: #{@sts9.number_of_performances}")
         expect(page).to have_content("Festival Appearances: #{@sts9.festival_appearances}")
       
-        visit "/artists/'#{@bone_thugs.id}"
+        visit "/artists/#{@bone_thugs.id}"
+        save_and_open_page
 
-        expect(page).to have_content("Name: #{@bone_thugs.name}")
+        expect(page).to have_content("#{@bone_thugs.name}")
         expect(page).to have_content("Explicit Content: #{@bone_thugs.explicit_content}")
         expect(page).to have_content("Performance Day: #{@bone_thugs.performance_day}")
         expect(page).to have_content("Number of Performances: #{@bone_thugs.number_of_performances}")
         expect(page).to have_content("Festival Appearances: #{@bone_thugs.festival_appearances}")
       end
   end
+  
 end

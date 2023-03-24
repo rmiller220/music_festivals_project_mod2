@@ -246,6 +246,7 @@
           1,
           1,
           1,
+          1,
           null
         ]
       },
@@ -259,6 +260,9 @@
         "lines": [
           1,
           1,
+          1,
+          0,
+          null,
           null
         ]
       },
@@ -273,30 +277,12 @@
         "lines": [
           1,
           1,
-          null
-        ]
-      },
-      "/Users/reillymiller/turing_work/mod2/relational_rails/music_festivals/app/controllers/artists_controller.rb": {
-        "lines": [
-          1,
-          1,
-          1,
           null,
           null,
-          1,
-          null,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/reillymiller/turing_work/mod2/relational_rails/music_festivals/app/controllers/application_controller.rb": {
-        "lines": [
-          1,
           null
         ]
       }
     },
-    "timestamp": 1679602307
+    "timestamp": 1679615663
   }
 }

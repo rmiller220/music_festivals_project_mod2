@@ -5,6 +5,5 @@ class FestivalsController < ApplicationController
 
   def show
     @festivals = Festival.find(params[:id])
-    # require 'pry'; binding.pry
   end
 end
