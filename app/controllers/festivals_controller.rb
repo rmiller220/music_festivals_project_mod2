@@ -1,6 +1,6 @@
 class FestivalsController < ApplicationController
   def index
-    @festivals = Festival.all 
+    @festivals = Festival.sort_by_most_recent
   end
 
   def show
