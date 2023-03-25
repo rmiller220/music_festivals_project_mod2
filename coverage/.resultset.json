@@ -261,11 +261,11 @@
           1,
           1,
           1,
-          3,
+          0,
           null,
           null,
           1,
-          4,
+          0,
           null,
           null
         ]
@@ -277,16 +277,21 @@
           null
         ]
       },
-      "/Users/reillymiller/turing_work/mod2/relational_rails/music_festivals_project_mod2/app/controllers/festivals_controller.rb": {
+      "/Users/reillymiller/turing_work/mod2/relational_rails/music_festivals_project_mod2/app/models/artist.rb": {
         "lines": [
           1,
           1,
-          3,
-          null,
+          null
+        ]
+      },
+      "/Users/reillymiller/turing_work/mod2/relational_rails/music_festivals_project_mod2/app/controllers/festival_artists_controller.rb": {
+        "lines": [
+          1,
           null,
           1,
-          3,
-          3,
+          1,
+          1,
+          null,
           null,
           null
         ]
@@ -296,15 +301,8 @@
           1,
           null
         ]
-      },
-      "/Users/reillymiller/turing_work/mod2/relational_rails/music_festivals_project_mod2/app/models/artist.rb": {
-        "lines": [
-          1,
-          1,
-          null
-        ]
       }
     },
-    "timestamp": 1679700636
+    "timestamp": 1679706061
   }
 }
