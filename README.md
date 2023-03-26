@@ -100,3 +100,32 @@ User Story 10, Parent Child Index Link
 As a visitor
 When I visit a parent show page ('/parents/:id')
 Then I see a link to take me to that parent's `child_table_name` page ('/parents/:id/child_table_name')
+
+
+<%= form_with url: '/festivals/new', method: :post %>
+  <br>
+  <%= form.label :name %>
+  <%= form.text_field :name%>
+  <br>
+  <%= form.label :city %>
+  <%= form.text_field :city %>
+  <br>
+  <%= form.label :kid_friendly %>
+  <%= form.radio_button :kid_friendly, "true" %>
+  <%= form.label :kid_friendly_true, "True" %>
+  <%= form.radio_button :kid_friendly, "false" %>
+  <%= form.label :kid_friendly_false, "False" %>
+  <%= form.label :ticket_price %>
+  <%= form.text_field :ticket_price %>
+  <%= form.label :dates %>
+  <%= form.text_field :dates %>
+  <%= form.label :rv_hookup %>
+  <%= form.radio_button :rv_hookup, "true" %>
+  <%= form.label :rv_hookup_true, "True" %>
+  <%= form.radio_button :rv_hookup, "true" %>
+  <%= form.label :rv_hookup_false, "False" %>
+  <br>
+  <%= form.submit "Add Festival" %>
+<% end %>
+
+

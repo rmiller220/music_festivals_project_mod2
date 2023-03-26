@@ -1,4 +1,5 @@
 <h1>Festivals Index Page</h1>
+<h3><%= link_to "Add New Festival", "/festivals/new" %></h3>
 <% @festivals.each do |festival| %>
 <p><%= festival.name %></p>
 <p><%= festival.created_at %></p>

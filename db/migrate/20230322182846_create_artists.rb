@@ -6,7 +6,7 @@ class CreateArtists < ActiveRecord::Migration[5.2]
       t.string :performance_day
       t.integer :number_of_performances
       t.integer :festival_appearances
-      t.references :festival, foreign_key: true
+      # t.references :festival, foreign_key: true
 
       t.timestamps
     end
