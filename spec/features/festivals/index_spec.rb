@@ -105,7 +105,7 @@ RSpec.describe "/festivals", type: :feature do
       expect(page).to have_content("#{all_good.created_at}")
     end
   end
-
+  # User Story 7
   describe "As a visitor, when I visit a parents show page" do
     let!(:summer_camp) { Festival.create!(name: "Summer Camp Music Festival",
                                           city: "Chillicothe, IL",
@@ -146,13 +146,14 @@ RSpec.describe "/festivals", type: :feature do
                                        festival_appearances: 2,
                                        festival: all_good)}
     it "I see a count of the number of artists associated with the festival" do
-      # artists = Artist.all
       visit "/festivals/#{summer_camp.id}"
       save_and_open_page
+
       expect(page).to have_content("Total Artists Performing at #{summer_camp.name}: #{summer_camp.artist_count}")
     end
   end
 
+  # User Story 8
   describe "As a visitor, when I visit any page on the site" do
     let!(:summer_camp) { Festival.create!(name: "Summer Camp Music Festival",
                                           city: "Chillicothe, IL",
@@ -226,6 +227,7 @@ RSpec.describe "/festivals", type: :feature do
     end
   end
 
+  # User Story 9
   describe "As a visitor, when I visit any page on the site" do
     let!(:summer_camp) { Festival.create!(name: "Summer Camp Music Festival",
                                           city: "Chillicothe, IL",

@@ -1,6 +1,7 @@
 
 <h1><%= @festivals.name %></h1>
 <br>
+<h3><%= link_to "Artists Index", "/festivals/#{@festivals.id}/artists" %></h3>
 <h4>Total Artists Performing at <%= @festivals.name %>: <%= @festivals.artist_count %>
 <p>City/State: <%= @festivals.city %></p>
 <p>Are we kid friendly? <%= @festivals.kid_friendly %></p>
