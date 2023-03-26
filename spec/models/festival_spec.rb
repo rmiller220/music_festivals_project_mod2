@@ -82,6 +82,7 @@ RSpec.describe Festival, type: :model do
                                        festival: all_good)}
     it "should #artist_count" do
       expect(summer_camp.artist_count).to eq(2)
+      expect(all_good.artist_count).to eq(2)
     end
   end
 end

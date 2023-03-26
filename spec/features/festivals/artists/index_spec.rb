@@ -31,7 +31,7 @@ RSpec.describe "/festivals/:festival_id/artists", type: :feature do
     end
     it "I see each Artist that is associated with that Festival with each Artist's attributes" do
       visit "/festivals/#{@summer_camp.id}/artists"
-      # save_and_open_page
+      save_and_open_page
       expect(page).to have_content("#{@summer_camp.name} Lineup")
       expect(page).to have_content("#{@sts9.name}")
       expect(page).to have_content("Explicit Content: #{@sts9.explicit_content}")
