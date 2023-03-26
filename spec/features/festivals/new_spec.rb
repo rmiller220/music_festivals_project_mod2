@@ -4,6 +4,7 @@ RSpec.describe '/festivals/new' do
   before(:each) do
     visit '/festivals/new'
   end
+  #User story 11
   describe "festivals#new"
     it "When I click this link, I am taken to '/festivals/new' where I see a form
           for a new festival record" do

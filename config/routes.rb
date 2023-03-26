@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   get "/festivals", to: "festivals#index"
   get "/artists", to: "artists#index"
   get "/festivals/new", to: "festivals#new"
+  post "/festivals", to: "festivals#create"
+  get "/festivals/:id/edit", to: "festivals#edit"
+  patch "/festivals/:id", to: "festivals#update"
   get "/festivals/:id", to: "festivals#show" 
   get "/artists/:id", to: "artists#show" 
   get "/festivals/:id/artists", to: "festival_artists#index"
-  post '/festivals', to: "festivals#create"
 end

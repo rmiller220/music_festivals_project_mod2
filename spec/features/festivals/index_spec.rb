@@ -299,7 +299,7 @@ RSpec.describe "/festivals", type: :feature do
       visit "/festivals/#{summer_camp.id}/artists"
     end
   end
-
+  #User Story 11
   describe "As a visitor, when I visit a parent Index page" do
     let!(:summer_camp) { Festival.create!(name: "Summer Camp Music Festival",
                                           city: "Chillicothe, IL",
@@ -327,6 +327,29 @@ RSpec.describe "/festivals", type: :feature do
       click_link('Add New Festival')
 
       expect(current_path).to eq("/festivals/new")
+    end
+  end
+  #User Story 12
+  describe "When I visit '/festivals/:id'" do
+    let!(:summer_camp) { Festival.create!(name: "Summer Camp Music Festival",
+                                          city: "Chillicothe, IL",
+                                          kid_friendly: true,
+                                          ticket_price: 600,
+                                          dates: "May 26th - 28th, 2023",
+                                          rv_hookup: false,
+                                          created_at: 1.day.ago)}
+    let!(:all_good) { Festival.create!(name: "All Good Music Festival",
+                                       city: "Masontown, WV",
+                                       kid_friendly: true,
+                                       ticket_price: 550,
+                                       dates: "July 15th - 17th, 2023",
+                                       rv_hookup: false,
+                                       created_at: 3.days.ago)} 
+
+    it "I see a link to update a festival" do
+      visit "/festivals/#{summer_camp.id}"
+      click_link("Update")
+      expect(current_path).to eq("/festivals/#{summer_camp.id}/edit")
     end
   end
 end

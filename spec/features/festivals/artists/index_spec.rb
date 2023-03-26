@@ -101,4 +101,5 @@ RSpec.describe "/festivals/:festival_id/artists", type: :feature do
       expect(current_path).to eq("/festivals/#{all_good.id}/artists")
     end
   end
+  
 end

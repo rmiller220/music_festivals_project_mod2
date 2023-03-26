@@ -1,11 +1,11 @@
 
-<h1><%= @festivals.name %></h1>
+<h1><%= @festival.name %></h1>
 <br>
-<h3><%= link_to "Artists Index", "/festivals/#{@festivals.id}/artists" %></h3>
-<h4>Total Artists Performing at <%= @festivals.name %>: <%= @festivals.artist_count %>
-<p>City/State: <%= @festivals.city %></p>
-<p>Are we kid friendly? <%= @festivals.kid_friendly %></p>
-<p>Ticket Price: <%= @festivals.ticket_price %></p>
-<p>Dates: <%= @festivals.dates %></p>
-<p>RV Hookup? <%= @festivals.rv_hookup %></p>
-
+<h3><%= link_to "Artists Index", "/festivals/#{@festival.id}/artists" %></h3>
+<h4>Total Artists Performing at <%= @festival.name %>: <%= @festival.artist_count %>
+<p>City/State: <%= @festival.city %></p>
+<p>Are we kid friendly? <%= @festival.kid_friendly %></p>
+<p>Ticket Price: <%= @festival.ticket_price %></p>
+<p>Dates: <%= @festival.dates %></p>
+<p>RV Hookup? <%= @festival.rv_hookup %></p>
+<a href="/festivals/<%= @festival.id %>/edit">Update</a>
