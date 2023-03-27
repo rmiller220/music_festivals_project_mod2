@@ -101,5 +101,105 @@ RSpec.describe "/festivals/:festival_id/artists", type: :feature do
       expect(current_path).to eq("/festivals/#{all_good.id}/artists")
     end
   end
-  
+
+  describe "/festivals/:id/artists" do
+    let!(:summer_camp) { Festival.create!(name: "Summer Camp Music Festival",
+                                          city: "Chillicothe, IL",
+                                          kid_friendly: true,
+                                          ticket_price: 600,
+                                          dates: "May 26th - 28th, 2023",
+                                          rv_hookup: false,
+                                          created_at: 1.day.ago)}
+    let!(:all_good) { Festival.create!(name: "All Good Music Festival",
+                                       city: "Masontown, WV",
+                                       kid_friendly: true,
+                                       ticket_price: 550,
+                                       dates: "July 15th - 17th, 2023",
+                                       rv_hookup: false,
+                                       created_at: 3.days.ago)}     
+    let!(:sts9) { Artist.create!(name: "STS9",
+                                 explicit_content: false,
+                                 performance_day: "Friday, Saturday",
+                                 number_of_performances: 2,
+                                 festival_appearances: 10,
+                                 festival: summer_camp)}
+    let!(:sts9_a) { Artist.create!(name: "STS9",
+                                 explicit_content: false,
+                                 performance_day: "Saturday",
+                                 number_of_performances: 1,
+                                 festival_appearances: 5,
+                                 festival: all_good)}
+    let!(:bone_thugs) { Artist.create!(name: "Bone Thugs in Harmony",
+                                       explicit_content: true,
+                                       performance_day: "Sunday",
+                                       number_of_performances: 1,
+                                       festival_appearances: 3,
+                                       festival: summer_camp)}
+    let!(:bassnectar) { Artist.create!(name: "Bassnectar",
+                                       explicit_content: false,
+                                       performance_day: "Friday",
+                                       number_of_performances: 1,
+                                       festival_appearances: 2,
+                                       festival: all_good)}
+    it "I see a link to add a new Artist for specific festival" do
+      visit "/festivals/#{summer_camp.id}/artists"
+      # save_and_open_page
+      expect(page).to have_link('Add Artist')
+    end
+    
+    it "When I click the link, I am taken to 'festivals/:id/artists/new' page
+    where I see a form to add a new Artist" do
+      visit "/festivals/#{summer_camp.id}/artists"
+      click_link("Add Artist")
+      # save_and_open_page
+      expect(current_path).to eq("/festivals/#{summer_camp.id}/artists/new")
+    end
+
+    it "When I fill in the form of the Artist's attributes, and click 'Add artist' I am 
+        redirected to '/festivals/:id/artists' where it adds the artist to the page" do
+        
+        visit "festivals/#{summer_camp.id}/artists/new"
+
+        expect(page).to have_content('Name')
+        expect(page).to have_field('name')
+        expect(page).to have_field('performance_day')
+        expect(page).to have_content('Explicit content')
+        expect(page).to have_unchecked_field('True')
+        expect(page).to have_unchecked_field('False')
+        expect(page).to have_content('Number of performances')
+        expect(page).to have_field('number_of_performances')
+        expect(page).to have_content('Festival appearances')
+        expect(page).to have_field('festival_appearances')
+        expect(page).to have_button('Add Artist')
+
+        fill_in("name", with: "The Main Squeeze")
+        fill_in("performance_day", with: "Saturday")
+        choose "explicit_content_true"
+        fill_in("number_of_performances", with: "1")
+        fill_in("festival_appearances", with: "7")
+        save_and_open_page
+        click_button "Add Artist"
+
+        expect(current_path).to eq("/festivals/#{summer_camp.id}/artists")
+
+
+        # expect(page).to have_content("The Main Squeeze")
+        # expect(page).to have_content("Explicit Content: True")
+        # expect(page).to have_content("Performance Day: Saturday")
+        # expect(page).to have_content("Number of Performances: 1")
+        # expect(page).to have_content("Festival Appearances: 7")
+    end
+  end
 end
+#   User Story 13, Parent Child Creation 
+
+# As a visitor
+# When I visit a Parent Children Index page
+# Then I see a link to add a new adoptable child for that parent "Create Child"
+# When I click the link
+# I am taken to '/parents/:parent_id/child_table_name/new' where I see a form to add a new adoptable child
+# When I fill in the form with the child's attributes:
+# And I click the button "Create Child"
+# Then a `POST` request is sent to '/parents/:parent_id/child_table_name',
+# a new child object/row is created for that parent,
+# and I am redirected to the Parent Childs Index page where I can see the new child listed

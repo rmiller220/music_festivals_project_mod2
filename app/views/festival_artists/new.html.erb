@@ -1,0 +1,20 @@
+<%= form_with url: "/festivals/#{@festival.id}/artists", method: :post, local: true do |form| %>
+  <br>
+  <%= form.label :name %><br>
+  <%= form.text_field :name%>
+  <br><br>
+  <%= form.label :performance_day %><br>
+  <%= form.text_field :performance_day %>
+  <br><br>
+  <%= form.label :explicit_content %><br>
+  <%= form.radio_button :explicit_content, "true" %>
+  <%= form.label :explicit_content_true, "True" %><br>
+  <%= form.radio_button :explicit_content, "false" %>
+  <%= form.label :explicit_content_false, "False" %><br><br>
+  <%= form.label :number_of_performances %><br>
+  <%= form.text_field :number_of_performances %><br><br>
+  <%= form.label :festival_appearances %><br>
+  <%= form.text_field :festival_appearances %><br><br>
+  <br>
+  <%= form.submit "Add Artist" %>
+<% end %>

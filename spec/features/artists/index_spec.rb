@@ -68,7 +68,7 @@ RSpec.describe "/artists", type: :feature do
     end
       it 'I see the Artist with that id, including its attribute' do
         visit "/artists/#{@sts9.id}"
-        save_and_open_page
+        # save_and_open_page
 
         expect(page).to have_content("#{@sts9.name}")
         expect(page).to have_content("Explicit Content: #{@sts9.explicit_content}")
