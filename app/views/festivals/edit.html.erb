@@ -1,0 +1,25 @@
+<form action="/festivals/<%= @festival.id %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+  <input type="hidden" name="_method" value="PATCH">
+  <p>Edit <%= @festival.id %></p>
+  <label for="name">Festival Name:</label><br>
+  <input type='text' name='festival[name]' value="<%= @festival.name %>"/><br>
+  <label for="name">City/State:</label><br>
+  <input type='text' name='festival[city]' value="<%= @festival.city %>"/><br>
+  <p>Kid Friendly</p>
+  <input type='radio' id="kid_friendly" value="<%= @festival.kid_friendly%>"/>
+  <label for="kid_friendly">True</label><br>
+  <input type='radio' id="kid_friendly" value="<%= @festival.kid_friendly%>"/>
+  <label for="kid_friendly">False</label><br><br>
+  <label for="ticket_price">Ticket Price</label><br>
+  <input type="number" id="ticket_price" value="<%= @festival.ticket_price %>"><br><br>
+  <label for="dates">Dates</label><br>
+  <input type="text" id="dates" value="<%= @festival.dates %>">
+  <p>RV Hookup</p>
+  <input type="radio" id="rv_hookup" value="<%= @festival.rv_hookup %>"/>
+  <label for="rv_hookup">True</label><br>
+  <input type="radio" id="rv_hookup" value="<%= @festival.rv_hookup %>"/>
+  <label for="rv_hookup">False</label><br><br>
+  <input type="submit" value="Edit Festival">
+
+</form>
