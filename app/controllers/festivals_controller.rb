@@ -46,4 +46,6 @@ class FestivalsController < ApplicationController
     festival.save
     redirect_to "/festivals/#{festival.id}"
   end
+
+  
 end

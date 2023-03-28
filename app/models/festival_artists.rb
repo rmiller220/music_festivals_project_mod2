@@ -1,0 +1,3 @@
+class FestivalArtist < ApplicationRecord
+  
+end

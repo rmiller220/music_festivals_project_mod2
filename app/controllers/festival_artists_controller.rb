@@ -2,9 +2,15 @@ class FestivalArtistsController < ApplicationController
   
   def index
     @festival = Festival.find(params[:id])
-    @artists = @festival.artists
+    # require 'pry'; binding.pry
+    if params[:sort_by] == 'a-z'
+      @artists = @festival.artists.order(:name)
+    else
+      @artists = @festival.artists
+    end
   end
-
+  
+  
   def new
     @festival = Festival.find(params[:id])
     # @artist = Artist.all

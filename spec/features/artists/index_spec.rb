@@ -78,7 +78,7 @@ RSpec.describe "/artists", type: :feature do
       expect(current_path).to eq("/artists/#{@bone_thugs.id}/edit")
     end
   end
-
+  #User Story 15
   describe "As a visitor to '/artists/' page" do
     before(:each) do
       @summer_camp = Festival.create!(name: "Summer Camp Music Festival",
