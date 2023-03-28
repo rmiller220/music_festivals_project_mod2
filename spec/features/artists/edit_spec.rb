@@ -28,7 +28,7 @@ RSpec.describe '/artists/:id/edit' do
     it 'I see a form to edit the Artist' do
 
       visit "/artists/#{@sts9.id}/edit"
-      save_and_open_page
+      # save_and_open_page
       expect(page).to have_field('name')
       expect(page).to have_content('Explicit content')
       expect(page).to have_unchecked_field('True')

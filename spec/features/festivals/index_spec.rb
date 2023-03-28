@@ -19,7 +19,7 @@ RSpec.describe "/festivals", type: :feature do
     it "I see the name of each festival" do 
 
       visit "/festivals"
-      
+      # save_and_open_page
       expect(page).to have_content("Festivals Index Page")
       expect(page).to have_content(summer_camp.name)
       expect(page).to have_content(all_good.name)
