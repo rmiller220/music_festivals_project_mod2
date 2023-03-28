@@ -49,15 +49,15 @@ RSpec.describe '/festivals/:id/edit' do
       fill_in("ticket_price", with: "750")
       choose "rv_hookup_true"
 
-      save_and_open_page
+      # save_and_open_page
       click_on("Edit Festival")
-      save_and_open_page
+      # save_and_open_page
       expect(current_path).to eq("/festivals/#{summer_camp.id}")
       expect(page).to have_content("Summer Camp")
       expect(page).to have_content("City/State: Chillicothe, IN")
       expect(page).to have_content("Are we kid friendly? true")
       expect(page).to have_content("Ticket Price: 750")
-      expect(page).to have_content("Festival dates: May 23th - 27th")
+      expect(page).to have_content("Dates: May 23th - 27th")
       expect(page).to have_content("RV Hookup? true")
     end
   end

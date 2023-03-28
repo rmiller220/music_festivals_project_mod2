@@ -177,7 +177,7 @@ RSpec.describe "/festivals/:festival_id/artists", type: :feature do
         choose "explicit_content_true"
         fill_in("number_of_performances", with: "1")
         fill_in("festival_appearances", with: "7")
-        # save_and_open_page
+        
         click_button "Add Artist"
 
         expect(current_path).to eq("/festivals/#{summer_camp.id}/artists")

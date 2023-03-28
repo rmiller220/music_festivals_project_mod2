@@ -1,6 +1,8 @@
 class ArtistsController < ApplicationController
   def index
-    @artists = Artist.all
+    # require 'pry'; binding.pry
+    @artists = Artist.explicit_true?
+
   end
 
   def show
@@ -25,4 +27,5 @@ class ArtistsController < ApplicationController
 
     redirect_to "/artists/#{artist.id}"
   end
+
 end
