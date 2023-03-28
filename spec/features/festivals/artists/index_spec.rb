@@ -177,17 +177,17 @@ RSpec.describe "/festivals/:festival_id/artists", type: :feature do
         choose "explicit_content_true"
         fill_in("number_of_performances", with: "1")
         fill_in("festival_appearances", with: "7")
-        save_and_open_page
+        # save_and_open_page
         click_button "Add Artist"
 
         expect(current_path).to eq("/festivals/#{summer_camp.id}/artists")
 
 
-        # expect(page).to have_content("The Main Squeeze")
-        # expect(page).to have_content("Explicit Content: True")
-        # expect(page).to have_content("Performance Day: Saturday")
-        # expect(page).to have_content("Number of Performances: 1")
-        # expect(page).to have_content("Festival Appearances: 7")
+        expect(page).to have_content("The Main Squeeze")
+        expect(page).to have_content("Explicit Content: true")
+        expect(page).to have_content("Performance Day: Saturday")
+        expect(page).to have_content("Number of Performances: 1")
+        expect(page).to have_content("Festival Appearances: 7")
     end
   end
 end
