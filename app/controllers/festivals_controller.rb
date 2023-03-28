@@ -13,13 +13,14 @@ class FestivalsController < ApplicationController
   end
 
   def create
+    # require 'pry'; binding.pry
     festival = Festival.new({
-      name: params[:festival][:name],
-      city: params[:festival][:city],
-      kid_friendly: params[:festival][:kid_friendly],
-      ticket_price: params[:festival][:ticket_price],
-      dates: params[:festival][:ticket_price],
-      rv_hookup: params[:festival][:rv_hookup]
+      name: params[:name],
+      city: params[:city],
+      kid_friendly: params[:kid_friendly],
+      ticket_price: params[:ticket_price],
+      dates: params[:ticket_price],
+      rv_hookup: params[:rv_hookup]
     })
 
     festival.save 
@@ -33,13 +34,14 @@ class FestivalsController < ApplicationController
 
   def update
     festival = Festival.find(params[:id])
+    # require 'pry'; binding.pry
     festival.update({
-      name: params[:festival][:name],
-      city: params[:festival][:city],
-      kid_friendly: params[:festival][:kid_friendly],
-      ticket_price: params[:festival][:ticket_price],
-      dates: params[:festival][:ticket_price],
-      rv_hookup: params[:festival][:rv_hookup]
+      name: params[:name],
+      city: params[:city],
+      kid_friendly: params[:kid_friendly],
+      ticket_price: params[:ticket_price],
+      dates: params[:ticket_price],
+      rv_hookup: params[:rv_hookup]
     })
     festival.save
     redirect_to "/festivals/#{festival.id}"

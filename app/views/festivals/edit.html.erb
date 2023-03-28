@@ -1,25 +1,25 @@
-<form action="/festivals/<%= @festival.id %>" method="post">
-  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
-  <input type="hidden" name="_method" value="PATCH">
-  <p>Edit <%= @festival.id %></p>
-  <label for="name">Festival Name:</label><br>
-  <input type='text' name='festival[name]' value="<%= @festival.name %>"/><br>
-  <label for="name">City/State:</label><br>
-  <input type='text' name='festival[city]' value="<%= @festival.city %>"/><br>
-  <p>Kid Friendly</p>
-  <input type='radio' id="kid_friendly" value="<%= @festival.kid_friendly%>"/>
-  <label for="kid_friendly">True</label><br>
-  <input type='radio' id="kid_friendly" value="<%= @festival.kid_friendly%>"/>
-  <label for="kid_friendly">False</label><br><br>
-  <label for="ticket_price">Ticket Price</label><br>
-  <input type="number" id="ticket_price" value="<%= @festival.ticket_price %>"><br><br>
-  <label for="dates">Dates</label><br>
-  <input type="text" id="dates" value="<%= @festival.dates %>">
-  <p>RV Hookup</p>
-  <input type="radio" id="rv_hookup" value="<%= @festival.rv_hookup %>"/>
-  <label for="rv_hookup">True</label><br>
-  <input type="radio" id="rv_hookup" value="<%= @festival.rv_hookup %>"/>
-  <label for="rv_hookup">False</label><br><br>
-  <input type="submit" value="Edit Festival">
-
-</form>
+<%= form_with url: "/festivals/#{@festival.id}", method: :patch, local: true do |form| %>
+  <br>
+  <%= form.label :name %><br>
+  <%= form.text_field :name%>
+  <br><br>
+  <%= form.label :city %><br>
+  <%= form.text_field :city %>
+  <br><br>
+  <%= form.label :kid_friendly %><br>
+  <%= form.radio_button :kid_friendly, "true" %>
+  <%= form.label :kid_friendly_true, "True" %><br>
+  <%= form.radio_button :kid_friendly, "false" %>
+  <%= form.label :kid_friendly_false, "False" %><br><br>
+  <%= form.label :ticket_price %><br>
+  <%= form.text_field :ticket_price %><br><br>
+  <%= form.label :festival_dates %><br>
+  <%= form.text_field :festival_dates %><br><br>
+  <%= form.label :rv_hookup %><br>
+  <%= form.radio_button :rv_hookup, "true" %>
+  <%= form.label :rv_hookup_true, "True" %><br>
+  <%= form.radio_button :rv_hookup, "false" %>
+  <%= form.label :rv_hookup_false, "False" %><br>
+  <br>
+  <%= form.submit "Edit Festival" %>
+<% end %>

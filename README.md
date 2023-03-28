@@ -102,7 +102,7 @@ When I visit a parent show page ('/parents/:id')
 Then I see a link to take me to that parent's `child_table_name` page ('/parents/:id/child_table_name')
 
 
-<%= form_with url: '/festivals/new', method: :post %>
+<%= form_with url: '/festivals/new', method: :post, local: true do |form| %>
   <br>
   <%= form.label :name %>
   <%= form.text_field :name%>
@@ -128,4 +128,55 @@ Then I see a link to take me to that parent's `child_table_name` page ('/parents
   <%= form.submit "Add Festival" %>
 <% end %>
 
+New
+<form action="/festivals" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+  <p>Enter a new festival</p>
+  <label for="name">Festival Name:</label><br>
+  <input type='text' name='festival[name]'/><br>
+  <label for="name">City/State:</label><br>
+  <input type='text' name='festival[city]'/><br>
+  <p>Kid Friendly</p>
+  <input type='radio' id="kid_friendly"/>
+  <label for="kid_friendly">True</label><br>
+  <input type='radio' id="kid_friendly"/>
+  <label for="kid_friendly">False</label><br><br>
+  <label for="ticket_price">Ticket Price</label><br>
+  <input type="number" id="ticket_price"/><br><br>
+  <label for="dates">Dates</label><br>
+  <input type="text" id="dates"/>
+  <p>RV Hookup</p>
+  <input type="radio" id="rv_hookup"/>
+  <label for="rv_hookup">True</label><br>
+  <input type="radio" id="rv_hookup"/>
+  <label for="rv_hookup">False</label><br><br>
+  <input type="submit" value="Add New Festival"/>
 
+</form>
+
+Edit
+<form action="/festivals/<%= @festival.id %>" method="patch">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token%>">
+  <input type="hidden" name="_method" value="PATCH">
+  <p>Edit <%= @festival.id %></p>
+  <label for="name">Festival Name:</label><br>
+  <input type='text' name='festival[name]' value="<%= @festival.name %>"/><br>
+  <label for="name">City/State:</label><br>
+  <input type='text' name='festival[city]' value="<%= @festival.city %>"/><br>
+  <p>Kid Friendly</p>
+  <input type='radio' id="kid_friendly" value="<%= @festival.kid_friendly%>"/>
+  <label for="kid_friendly">True</label><br>
+  <input type='radio' id="kid_friendly" value="<%= @festival.kid_friendly%>"/>
+  <label for="kid_friendly">False</label><br><br>
+  <label for="ticket_price">Ticket Price</label><br>
+  <input type="number" id="ticket_price" value="<%= @festival.ticket_price %>"><br><br>
+  <label for="dates">Dates</label><br>
+  <input type="text" id="dates" value="<%= @festival.dates %>">
+  <p>RV Hookup</p>
+  <input type="radio" id="rv_hookup" value="<%= @festival.rv_hookup %>"/>
+  <label for="rv_hookup">True</label><br>
+  <input type="radio" id="rv_hookup" value="<%= @festival.rv_hookup %>"/>
+  <label for="rv_hookup">False</label><br><br>
+  <input type="submit" value="Edit Festival">
+
+</form>

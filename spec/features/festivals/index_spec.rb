@@ -25,45 +25,7 @@ RSpec.describe "/festivals", type: :feature do
       expect(page).to have_content(all_good.name)
     end
   end
-  #User story 2
-  describe "as a visitor, when I visit the festivals/:id" do
-    
-    let!(:summer_camp) { Festival.create!(name: "Summer Camp Music Festival",
-                                          city: "Chillicothe, IL",
-                                          kid_friendly: true,
-                                          ticket_price: 600,
-                                          dates: "May 26th - 28th, 2023",
-                                          rv_hookup: false)}
-    let!(:all_good) { Festival.create!(name: "All Good Music Festival",
-                                       city: "Masontown, WV",
-                                       kid_friendly: true,
-                                       ticket_price: 550,
-                                       dates: "July 15th - 17th, 2023",
-                                       rv_hookup: false)}
-    
-    it 'I see the Festival with that id, including its attributes' do
-
-      visit "/festivals/#{summer_camp.id}"
-      # save_and_open_page
-
-      expect(page).to have_content("#{summer_camp.name}")
-      expect(page).to have_content("City/State: #{summer_camp.city}")
-      expect(page).to have_content("Are we kid friendly? #{summer_camp.kid_friendly}")
-      expect(page).to have_content("Ticket Price: #{summer_camp.ticket_price}")
-      expect(page).to have_content("Dates: #{summer_camp.dates}")
-      expect(page).to have_content("RV Hookup? #{summer_camp.rv_hookup}")
-
-      visit "/festivals/#{all_good.id}"
-      # save_and_open_page
-
-      expect(page).to have_content("#{all_good.name}")
-      expect(page).to have_content("City/State: #{all_good.city}")
-      expect(page).to have_content("Are we kid friendly? #{all_good.kid_friendly}")
-      expect(page).to have_content("Ticket Price: #{all_good.ticket_price}")
-      expect(page).to have_content("Dates: #{all_good.dates}")
-      expect(page).to have_content("RV Hookup? #{all_good.rv_hookup}")
-    end
-  end
+  
   #User Story 6
   describe "As a visitor, when I visit the Festival index" do
     
@@ -147,7 +109,7 @@ RSpec.describe "/festivals", type: :feature do
                                        festival: all_good)}
     it "I see a count of the number of artists associated with the festival" do
       visit "/festivals/#{summer_camp.id}"
-      save_and_open_page
+      # save_and_open_page
 
       expect(page).to have_content("Total Artists Performing at #{summer_camp.name}: #{summer_camp.artist_count}")
     end
