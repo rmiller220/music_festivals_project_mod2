@@ -1,6 +1,6 @@
 require 'rails_helper'
 #User Story 12
-RSpec.describe '/festivals/new' do
+RSpec.describe '/festivals/:id/edit' do
   # before(:each) do
   #   visit '/festivals/:id/edit'
   # end

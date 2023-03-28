@@ -137,19 +137,19 @@ New
   <label for="name">City/State:</label><br>
   <input type='text' name='festival[city]'/><br>
   <p>Kid Friendly</p>
-  <input type='radio' id="kid_friendly"/>
-  <label for="kid_friendly">True</label><br>
-  <input type='radio' id="kid_friendly"/>
-  <label for="kid_friendly">False</label><br><br>
+  <input type='radio' id="kid_friendly_true"/>
+  <label for="kid_friendly_true">True</label><br>
+  <input type='radio' id="kid_friendly_false"/>
+  <label for="kid_friendly_false">False</label><br><br>
   <label for="ticket_price">Ticket Price</label><br>
   <input type="number" id="ticket_price"/><br><br>
   <label for="dates">Dates</label><br>
   <input type="text" id="dates"/>
   <p>RV Hookup</p>
-  <input type="radio" id="rv_hookup"/>
-  <label for="rv_hookup">True</label><br>
-  <input type="radio" id="rv_hookup"/>
-  <label for="rv_hookup">False</label><br><br>
+  <input type="radio" id="rv_hookup_true"/>
+  <label for="rv_hookup_true">True</label><br>
+  <input type="radio" id="rv_hookup_false"/>
+  <label for="rv_hookup_false">False</label><br><br>
   <input type="submit" value="Add New Festival"/>
 
 </form>

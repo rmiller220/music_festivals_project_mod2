@@ -253,6 +253,8 @@
           1,
           1,
           1,
+          1,
+          1,
           null
         ]
       },
@@ -271,7 +273,7 @@
           null,
           null,
           1,
-          2,
+          0,
           null,
           null
         ]
@@ -290,24 +292,25 @@
           null
         ]
       },
-      "/Users/reillymiller/turing_work/mod2/relational_rails/music_festivals_project_mod2/app/controllers/festival_artists_controller.rb": {
+      "/Users/reillymiller/turing_work/mod2/relational_rails/music_festivals_project_mod2/app/controllers/artists_controller.rb": {
         "lines": [
+          1,
+          1,
+          0,
+          null,
+          null,
           1,
           null,
           1,
-          6,
-          6,
           null,
           null,
           1,
           2,
           null,
-          null,
-          null,
-          1,
           1,
           1,
           null,
+          1,
           null,
           null,
           null,
@@ -326,61 +329,8 @@
           1,
           null
         ]
-      },
-      "/Users/reillymiller/turing_work/mod2/relational_rails/music_festivals_project_mod2/app/controllers/festivals_controller.rb": {
-        "lines": [
-          1,
-          1,
-          0,
-          null,
-          null,
-          1,
-          2,
-          2,
-          null,
-          null,
-          1,
-          null,
-          null,
-          null,
-          1,
-          null,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0,
-          null,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          null,
-          1,
-          0,
-          null,
-          0,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          0,
-          0,
-          null,
-          null
-        ]
       }
     },
-    "timestamp": 1679961994
+    "timestamp": 1679972637
   }
 }

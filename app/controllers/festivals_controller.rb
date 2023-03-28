@@ -40,7 +40,7 @@ class FestivalsController < ApplicationController
       city: params[:city],
       kid_friendly: params[:kid_friendly],
       ticket_price: params[:ticket_price],
-      dates: params[:ticket_price],
+      dates: params[:dates],
       rv_hookup: params[:rv_hookup]
     })
     festival.save
