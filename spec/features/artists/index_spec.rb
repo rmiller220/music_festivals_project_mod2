@@ -117,10 +117,36 @@ RSpec.describe "/artists", type: :feature do
       expect(page).to have_content("Artists Index Page")
     end
   end
+
+  describe "edit_button" do
+    before(:each) do
+      @summer_camp = Festival.create!(name: "Summer Camp Music Festival",
+                                      city: "Chillicothe, IL",
+                                      kid_friendly: true,
+                                      ticket_price: 600,
+                                      dates: "May 26th - 28th, 2023",
+                                      rv_hookup: false)
+  
+      @sts9 = @summer_camp.artists.create!(name: "STS9",
+                                           explicit_content: false,
+                                           performance_day: "Friday, Saturday",
+                                           number_of_performances: 2,
+                                           festival_appearances: 10)
+      @bone_thugs = @summer_camp.artists.create!(name: "Bone Thugs in Harmony",
+                                                explicit_content: true,
+                                                performance_day: "Sunday",
+                                                number_of_performances: 1,
+                                                festival_appearances: 3,
+                                                festival: @summer_camp)
+    end
+    it "edit" do
+      visit "/artists"
+
+      expect(page).to have_link("Update #{@bone_thugs.name}")
+
+      click_link "Update #{@bone_thugs.name}"
+
+      expect(current_path).to eq("/artists/#{artists.id}/edit")
+    end
+  end
 end
-
-# User Story 15, Child Index only shows `true` Records 
-
-# As a visitor
-# When I visit the child index
-# Then I only see records where the boolean column is `true`
