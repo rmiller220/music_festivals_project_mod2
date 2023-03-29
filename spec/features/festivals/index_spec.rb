@@ -307,11 +307,55 @@ RSpec.describe "/festivals", type: :feature do
                                        dates: "July 15th - 17th, 2023",
                                        rv_hookup: false,
                                        created_at: 3.days.ago)} 
-
-    it "I see a link to update a festival" do
+                                       
+      it "I see a link to update a festival" do
       visit "/festivals/#{summer_camp.id}"
       click_link("Update")
       expect(current_path).to eq("/festivals/#{summer_camp.id}/edit")
     end
   end
+  #user story 17
+  describe "edit" do
+      
+      let!(:summer_camp) { Festival.create!(name: "Summer Camp Music Festival",
+                                            city: "Chillicothe, IL",
+                                            kid_friendly: true,
+                                            ticket_price: 600,
+                                            dates: "May 26th - 28th, 2023",
+                                            rv_hookup: false,
+                                            created_at: 1.day.ago)}
+      let!(:all_good) { Festival.create!(name: "All Good Music Festival",
+                                          city: "Masontown, WV",
+                                          kid_friendly: true,
+                                          ticket_price: 550,
+                                          dates: "July 15th - 17th, 2023",
+                                          rv_hookup: false,
+                                          created_at: 3.days.ago)} 
+
+    it "edits" do
+      visit "/festivals"                                          
+      expect(page).to have_link("Edit #{summer_camp.name}")
+
+      click_link "Edit #{summer_camp.name}"
+
+      expect(current_path).to eq("/festivals/#{summer_camp.id}/edit")
+      expect(page).to have_field('name')
+      expect(page).to have_field('city')
+      expect(page).to have_content('Kid friendly')
+      expect(page).to have_unchecked_field('True')
+      expect(page).to have_unchecked_field('False')
+      expect(page).to have_field('ticket_price')
+      expect(page).to have_field('dates')
+      expect(page).to have_content('Rv hookup')
+      expect(page).to have_unchecked_field('True')
+      expect(page).to have_unchecked_field('False')
+      expect(page).to have_button('Edit Festival')
+
+      click_button("Edit Festival")
+
+      expect(current_path).to eq("/festivals/#{summer_camp.id}")
+    end
+    
+  end
 end
+
