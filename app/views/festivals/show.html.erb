@@ -8,6 +8,6 @@
 <p>Ticket Price: <%= @festival.ticket_price %></p>
 <p>Dates: <%= @festival.dates %></p>
 <p>RV Hookup? <%= @festival.rv_hookup %></p>
-<a href="/festivals/<%= @festival.id %>/edit">Update</a>
-
+<a href="/festivals/<%= @festival.id %>/edit">Update</a><br><br>
+<%= link_to "Delete #{@festival.name}", "/festivals/#{@festival.id}", method: :delete %>
 

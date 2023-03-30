@@ -12,5 +12,7 @@ Rails.application.routes.draw do
   get "/artists/:id", to: "artists#show" 
   get "/artists/:id/edit", to: "artists#edit"
   patch "/artists/:id", to: "artists#update"
+  delete "/artists/:id", to: "artists#destroy"
   get "/festivals/:id/artists", to: "festival_artists#index"
+  delete "/festivals/:id", to: "festivals#destroy"
 end

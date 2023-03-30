@@ -1,7 +1,8 @@
 <h1><%= @artists.name %></h1>
-<br>
+
 <p>Explicit Content: <%= @artists.explicit_content %></p>
 <p>Performance Day: <%= @artists.performance_day %></p>
 <p>Number of Performances: <%= @artists.number_of_performances %></p>
 <p>Festival Appearances: <%= @artists.festival_appearances %></p>
-<h3><%= link_to "Update Artist", "/artists/#{@artists.id}/edit" %></h3>
+<h4><%= link_to "Update Artist", "/artists/#{@artists.id}/edit" %></h3>
+<h4><%= link_to "Delete #{@artists.name}", "/artists/#{@artists.id}", method: :delete %></h4>

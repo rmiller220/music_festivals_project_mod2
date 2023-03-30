@@ -7,4 +7,8 @@ class Festival < ApplicationRecord
   def artist_count
     artists.size
   end
+
+  def sort_festivals
+    artists.order(:name)
+  end
 end
