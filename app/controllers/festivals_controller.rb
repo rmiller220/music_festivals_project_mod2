@@ -47,5 +47,12 @@ class FestivalsController < ApplicationController
     redirect_to "/festivals/#{festival.id}"
   end
 
-  
+  def destroy
+    festival = Festival.find(params[:id])
+    artists = festival.artists
+    artists.each{|artist| artist.destroy}
+    festival.destroy
+
+    redirect_to "/festivals"
+  end
 end

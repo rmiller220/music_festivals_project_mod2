@@ -1,12 +1,9 @@
 class ArtistsController < ApplicationController
   def index
-    # require 'pry'; binding.pry
     @artists = Artist.explicit_true?
-
   end
 
   def show
-    # require 'pry'; binding.pry
     @artists = Artist.find(params[:id])
   end
 
@@ -15,7 +12,6 @@ class ArtistsController < ApplicationController
   end
   def update
     artist = Artist.find(params[:id])
-    # require 'pry'; binding.pry
     artist.update({
       name: params[:name],
       explicit_content: params[:explicit_content],
@@ -28,4 +24,8 @@ class ArtistsController < ApplicationController
     redirect_to "/artists/#{artist.id}"
   end
 
+  def destroy
+    Artist.destroy(params[:id])
+    redirect_to "/artists"
+  end
 end

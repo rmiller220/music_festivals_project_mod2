@@ -4,7 +4,7 @@ class FestivalArtistsController < ApplicationController
     @festival = Festival.find(params[:id])
     # require 'pry'; binding.pry
     if params[:sort_by] == 'a-z'
-      @artists = @festival.artists.order(:name)
+      @artists = @festival.sort_festivals
     else
       @artists = @festival.artists
     end

@@ -120,6 +120,8 @@ RSpec.describe "/artists", type: :feature do
 
   describe "edit_button" do
     before(:each) do
+      Artist.delete_all
+      Festival.delete_all
       @summer_camp = Festival.create!(name: "Summer Camp Music Festival",
                                       city: "Chillicothe, IL",
                                       kid_friendly: true,
@@ -143,10 +145,10 @@ RSpec.describe "/artists", type: :feature do
       visit "/artists"
 
       expect(page).to have_link("Update #{@bone_thugs.name}")
-
+      
       click_link "Update #{@bone_thugs.name}"
 
-      expect(current_path).to eq("/artists/#{artists.id}/edit")
+      expect(current_path).to eq("/artists/#{@bone_thugs.id}/edit")
     end
   end
 end
